@@ -1,0 +1,193 @@
+# SPDX-License-Identifier: MIT
+#
+# Spacemacs for Helix, see https://github.com/langston-barrett/spacelix
+
+# TODO: Spacebones dark!
+theme = "onedark"
+
+# A few notes on what follows:
+#
+# - When a command is bound to a key, the default Helix keybinding is removed
+#   (by setting the key to "no_op").
+# - Keybindings are organized first by mode, then parent key, then
+#   alphabetically.
+# - Keybindings that match between Helix and Spacemacs are still explicitly
+#   bound in case the Helix defaults change, but are marked `# default` for
+#   clarity. (There are more to be done, however!)
+# - Section names are inspire by the Spacemacs documentation.
+
+# ---------------------------------------------------------
+# Normal
+
+[keys.normal]
+"C-c" = "no_op"  # default: toggle_comments, instead: SPC ;
+";" = "toggle_comments"
+"@" = "replay_macro"
+"$" = "goto_line_end"
+"*" = ["search_selection", "search_next"]
+"0" = "goto_line_start"
+"V" = ["select_mode", "extend_to_line_bounds"]
+"D" = ["exit_select_mode", "select_mode", "goto_line_end", "delete_selection"]
+"G" = "goto_last_line"
+"q" = "record_macro"
+"C-r" = "redo"
+"H" = "goto_window_top"
+"L" = "goto_window_bottom"
+"M" = "goto_window_center"
+
+[keys.normal.space]
+"space" = "command_palette"
+"f" = "file_picker"
+"o" = "no_op"  # reserved for user in Spacemacs
+"h" = "global_search"
+"s" = ":write"
+
+# Buffer manipulation
+[keys.normal.space.b]
+"b" = "buffer_picker"
+"d" = ":buffer-close"
+"D" = ":buffer-close!"
+"n" = "goto_next_buffer"
+"p" = "goto_previous_buffer"
+"r" = ":reload"
+"s" = ":new"
+"y" = ["select_all", ":clipboard-yank"]
+"Y" = ["select_all", "yank"]
+
+# Error handling
+[keys.normal.space.e]
+"l" = "workspace_diagnostics_picker"
+"n" = "goto_next_diag"
+"p" = "goto_prev_diag"
+"g" = "goto_first_diag"
+"G" = "goto_last_diag"
+
+[keys.normal.g]
+"l" = "no_op"  # default: goto_line_end, instead: $
+"n" = "no_op"  # default: goto_next_buffer, instead: SPC b n
+"p" = "no_op"  # default: goto_prev_buffer, instead: SPC b p
+
+# Go to
+[keys.normal.space.g]
+"$" = "goto_line_end"
+"0" = "goto_line_start"
+"d" = "goto_definition"
+"g" = "goto_file_start"
+"G" = "goto_file_end"
+"h" = "goto_line_start"
+"i" = "goto_implementation"
+"l" = "goto_line_end"
+"m" = "goto_last_modification"
+"t" = "goto_window_top"
+"b" = "goto_window_bottom"
+"c" = "goto_window_center"
+"r" = "goto_reference"
+"s" = "symbol_picker"
+"S" = "workspace_symbol_picker"
+"w" = "goto_first_nonwhitespace"
+"y" = "goto_type_definition"
+
+# Go to file
+[keys.normal.space.g.f]
+"a" = "goto_last_accessed_file"
+"f" = "goto_file"
+"h" = "goto_file_hsplit"
+"v" = "goto_file_vsplit"
+"m" = "goto_last_modified_file"
+
+# Jumplist
+[keys.normal.space.j]
+"f" = "jump_forward"
+"b" = "jump_backward"
+"j" = "jumplist_picker"
+"s" = "save_selection"
+
+# Increase/decrease numbers
+[keys.normal.space.n]
+"+" = "increment"
+# "-" = "decrement"
+
+[keys.normal.space.q]
+"a" = ":quit-all"
+"A" = ":quit-all!"
+"c" = ":cquit"
+"C" = ":cquit!"
+"q" = ":quit"
+"Q" = ":quit!"
+"w" = ":write-quit"
+"W" = ":write-quit!"
+
+# Window manipulation
+[keys.normal.space.w]
+"q" = "no_op"  # default: wclose, instead: d
+"d" = "wclose"
+"h" = "jump_view_left"  # default
+"j" = "jump_view_down"  # default
+"k" = "jump_view_up"  # default
+"l" = "jump_view_right"  # default
+"H" = "swap_view_left"  # default
+"J" = "swap_view_down"  # default
+"K" = "swap_view_up"  # default
+"L" = "swap_view_right"  # default
+"s" = "hsplit"  # default
+"v" = "vsplit"  # default
+"/" = "vsplit"
+# TODO: Why doesn't this work?
+# "-" = "hsplit"
+
+# Text manipulation
+[keys.normal.space.x]
+"u" = "switch_to_lowercase"
+"U" = "switch_to_uppercase"
+
+[keys.normal.space.x.l]
+"s" = ":sort"
+
+# Helix
+[keys.normal.space.X]
+"f" = ":config-open"
+"r" = ":config-reload"
+"t" = ":tutor"
+"l" = ":log-open"
+
+# ---------------------------------------------------------
+# Select
+
+[keys.select]
+"C-c" = "no_op"  # default: toggle_comments, instead: SPC ;
+"$" = "goto_line_end"
+"0" = "goto_line_start"
+"V" = "extend_line_below"
+"G" = "goto_last_line"
+"p" = "goto_next_paragraph"
+"H" = "select_prev_sibling"
+"K" = "expand_selection"
+"J" = "shrink_selection"
+"L" = "select_next_sibling"
+"M" = "goto_window_center"
+"up" = "expand_selection"
+"down" = "shrink_selection"
+"left" = "select_prev_sibling"
+"right" = "select_next_sibling"
+
+[keys.select.g]
+"q" = ":reflow"
+
+# https://www.spacemacs.org/doc/DOCUMENTATION.html#executing-vim-and-emacs-exm-x-commands
+[keys.select.space]
+"space" = "command_palette"
+"o" = "no_op"  # reserved for user in Spacemacs
+";" = "toggle_comments"
+
+# Case
+[keys.normal.space.c]
+"c" = "switch_case"
+"l" = "switch_to_lowercase"
+"u" = "switch_to_uppercase"
+
+# Jumplist
+[keys.select.space.j]
+"f" = "jump_forward"
+"b" = "jump_backward"
+"j" = "jumplist_picker"
+"s" = "save_selection"
