@@ -129,6 +129,13 @@ And the following are just for good measure:
   - `L`: Select next sibling
   - `M`: Go to center of window
 
+## Installation
+
+Back up your existing Helix configuration, then:
+```sh
+curl -L -o ~/.config/helix/config.toml https://raw.githubusercontent.com/langston-barrett/spacelix/main/src/spacelix.toml
+```
+
 ## Conventions and Mnemonics
 
 - `n` means "next", preferred over "forward"
